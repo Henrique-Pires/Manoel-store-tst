@@ -1,0 +1,61 @@
+<div class="w-100 h-100 flex justify-center items-center">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()"
+    class="w-full max-w-4xl bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="col-span-1">
+        <div class="mb-4">
+          <label for="nome" class="block text-gray-700 text-sm font-bold mb-2">Nome</label>
+          <input id="nome" formControlName="nome"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            [ngClass]="{'border-red-500': form.controls['nome'].invalid && form.controls['nome'].touched}" />
+        </div>
+        <div class="mb-4">
+          <label for="preco" class="block text-gray-700 text-sm font-bold mb-2">Preço</label>
+          <input id="preco" formControlName="preco" type="number"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            [ngClass]="{'border-red-500': form.controls['preco'].invalid && form.controls['preco'].touched}" />
+        </div>
+        <div class="mb-4">
+          <label for="altura" class="block text-gray-700 text-sm font-bold mb-2">Altura</label>
+          <input id="altura" formControlName="altura" type="number"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            [ngClass]="{'border-red-500': form.controls['altura'].invalid && form.controls['altura'].touched}" />
+        </div>
+        <div class="mb-4">
+          <label for="largura" class="block text-gray-700 text-sm font-bold mb-2">Largura</label>
+          <input id="largura" formControlName="largura" type="number"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            [ngClass]="{'border-red-500': form.controls['largura'].invalid && form.controls['largura'].touched}" />
+        </div>
+        <div class="mb-4">
+          <label for="comprimento" class="block text-gray-700 text-sm font-bold mb-2">Comprimento</label>
+          <input id="comprimento" formControlName="comprimento" type="number"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            [ngClass]="{'border-red-500': form.controls['comprimento'].invalid && form.controls['comprimento'].touched}" />
+        </div>
+        <div class="mb-4">
+          <label for="desc" class="block text-gray-700 text-sm font-bold mb-2">Descrição</label>
+          <input id="desc" formControlName="desc"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            [ngClass]="{'border-red-500': form.controls['desc'].invalid && form.controls['desc'].touched}" />
+        </div>
+      </div>
+      <div class="col-span-1 flex flex-col items-center justify-center">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Imagem do Produto</label>
+        <div
+          class="w-64 h-64 bg-gray-200 flex items-center justify-center border-dashed border-2 border-gray-400 rounded mb-4">
+          <img *ngIf="imageBase64" [src]="imageBase64" alt="Pré-visualização da Imagem"
+            class="object-cover w-full h-full" />
+          <span *ngIf="!imageBase64" class="text-gray-500">Pré-visualização da Imagem</span>
+        </div>
+        <input type="file" (change)="onFileChange($event)" class="mt-4" />
+      </div>
+    </div>
+    <div class="flex items-center justify-between mt-6">
+      <button type="submit"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        Enviar
+      </button>
+    </div>
+  </form>
+</div>

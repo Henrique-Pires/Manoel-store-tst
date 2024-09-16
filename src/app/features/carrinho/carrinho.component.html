@@ -1,0 +1,17 @@
+  <div *ngFor="let caixaId of alocacao.keys()">
+    <div class="min-h-[30%]">
+      <h3>Caixa {{ caixaId }} - {{retornaDimensao(caixaId)}}</h3>
+      <ul>
+        <li *ngFor="let produto of alocacao.get(caixaId)">
+          <div class="w-100 h-[115px] bg-slate-400 text-xs p-2 relative">
+            <p>Nome: {{produto.nome}}</p>
+            <p>Preço: R$ {{produto.preco}}</p>
+            <p>Altura: {{produto.altura}}</p>
+            <p>Largura: {{produto.largura}}</p>
+            <p>Comprimento: {{produto.comprimento}}</p>
+            <p>Descrição: {{produto.desc}}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>

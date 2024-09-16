@@ -1,0 +1,28 @@
+<div class="w-100 h-[85%] p-3 flex gap-3 flex-wrap overflow-auto">
+
+<ng-container *ngIf="produtos.length > 0; else noProdutos">
+  <div class="w-[19%] h-[260px] relative" *ngFor="let item of produtos; let i = index">
+    <div class="w-100 h-[130px] bg-slate-500 flex items-center justify-center">
+      <img [src]="item.imagem" alt="img-game" class="max-w-full max-h-full object-contain">
+    </div>
+    <div class="w-100 h-[130px] bg-slate-400 text-xs p-2 relative">
+      <p>Nome: {{item.nome}}</p>
+      <p>Preço: R$ {{item.preco}}</p>
+      <p>Altura: {{item.altura}}</p>
+      <p>Largura: {{item.largura}}</p>
+      <p>Comprimento: {{item.comprimento}}</p>
+      <p>Descrição: {{item.desc}}</p>
+      <button (click)="removerProduto(i)" class="absolute top-2 right-2 text-red-500 hover:text-red-700">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</ng-container>
+<ng-template #noProdutos>
+  <div class="w-full text-center text-gray-500">
+    <p>Não há produtos cadastrados no momento.</p>
+  </div>
+</ng-template>
+</div>

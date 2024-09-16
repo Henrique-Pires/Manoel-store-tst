@@ -1,0 +1,29 @@
+<main class="w-100 h-[100vh] flex bg-slate-600 items-center justify-center">
+  <div class="w-[75%] h-[75%] bg-slate-300 rounded-lg">
+    <div class="w-100 h-[10%] border-b-[2px] border-slate-600 p-3 flex items-center justify-between">
+      <div>
+        Manoel Store
+      </div>
+      <div class="flex gap-5">
+        <button (click)="stage = 0">Listagem</button>
+        <button (click)="stage = 1">Cadastrar</button>
+        <button (click)="stage = 2">Carrinho</button>
+      </div>
+    </div>
+
+    <ng-container *ngIf="isList()">
+      <app-listagem></app-listagem>
+    </ng-container>
+
+    <ng-container *ngIf="isForm()">
+      <app-formulario-jogo (setStage)="stage = $event"></app-formulario-jogo>
+    </ng-container>
+
+    <ng-container *ngIf="isCart()">
+      <div class="w-100 h-[85%] p-3 flex flex-col flex-wrap overflow-auto">
+        <app-carrinho></app-carrinho>
+      </div>
+    </ng-container>
+
+  </div>
+</main>
